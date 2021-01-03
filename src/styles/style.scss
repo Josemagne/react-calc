@@ -1,0 +1,116 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+button {
+  outline: none;
+  border: none;
+
+  &:active {
+    outline: none;
+  }
+}
+
+
+
+/* VARIABLES */
+$mainColor: rgb(97, 93, 93);
+$mainTextColor: rgb(236, 233, 233);
+$smallDevices: 600px; /* max-width */
+$largeDevices: 992px; /* max-width */
+$ExtraLargeDevices: 1200px; /* min-width */
+$zahlWidth: 4rem;
+$zahlHeight: 4rem;
+$zahlFontSize: 1rem;
+$operatorWidth: 4rem;
+$operatorHeight: 4rem;
+$operatorFontSize: 1rem;
+
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  border: 1px solid black;
+  .result {
+    .inputField {
+      width: $zahlWidth*5; // TODO mediaport
+      max-width: 80wv;
+      resize: none;
+      padding: 1rem;
+      background-color: black;
+      color: white;
+      font-size: 1.5rem;
+    }
+  }
+  
+  .clear {
+    height: fit-content;
+    .clearButton {
+      width: 100%;
+      height: 80%;
+      background-color: rgb(207, 85, 85);
+      color: white;
+      font-weight: bolder;
+      font-size: 1.5rem;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+
+    /* Zahlen */
+    .zahlen {
+      display: flex;
+      flex-wrap: wrap;
+      height: $zahlHeight*3;
+      width: $zahlWidth*3;
+      li {
+        list-style: none;
+          button {
+            width: $zahlWidth; // TODO mediaport
+            height: $zahlHeight;
+            font-size: $zahlFontSize;
+            padding: 1rem;
+            cursor:pointer;
+            &:hover {
+              border: 1px solid black;
+            }
+          }
+      }
+    }
+
+    /* Operatoren */
+    .operatoren {
+      display: flex;
+      flex-wrap: wrap;
+      height: $operatorHeight*3;
+      width: $operatorWidth*2;
+      li {
+        list-style: none;
+        button {
+          width: $operatorWidth; // TODO mediaport
+          height: $operatorHeight;
+          font-size: $operatorFontSize;
+          font-weight: bold;
+          padding: 1.5rem;
+          cursor: pointer;
+          &:hover {
+            border: 1px solid black;
+          }
+        }
+      }
+    }
+  }
+}
